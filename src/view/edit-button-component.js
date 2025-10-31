@@ -20,7 +20,7 @@ export default class EditButtonComponent extends AbstractComponent{
         model.deleteItem({id: this.id});
     }
     this.#handleClick = a;
-    this.element.addEventListener('click', this.#clickHandler);
+    //this.element.addEventListener('click', this.#clickHandler);
   }
 
   get template(){
