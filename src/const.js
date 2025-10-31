@@ -1,15 +1,15 @@
-const Genre = {
-    FICTION : `Food`,
-    SCIENCE: `science`,
-    FANTASY: `fantasy`,
-    BIOGRAPHY: `biography`
+const Category = {
+    FOOD : `Food`,
+    TRANSPORT: `Transport`,
+    ENTERTAINMENT: `Entertainment`,
+    OTHER: `Other`
 }
 
-const GenreLabel = {
-    [Status.FICTION]: `Художественная`,
-    [Status.SCIENCE]: `Научная`,
-    [Status.FANTASY]: `Фантастика`,
-    [Status.BIOGRAPHY]: `Биография`
+const CategoryeLabel = {
+    [Status.FOOD]: `Еда`,
+    [Status.TRANSPORT]: `Транспор`,
+    [Status.ENTERTAINMENT]: `Развлечения`,
+    [Status.OTHER]: `Другое`
 }
 
-export {Genre, GenreLabel};
+export {Category, CategoryeLabel};

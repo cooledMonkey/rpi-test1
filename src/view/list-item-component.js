@@ -1,13 +1,12 @@
 import { AbstractComponent } from '../framework/view/abstract-component.js';
-import {createElement} from '../framework/render.js'; 
 
 function createTemplate(amount,name,category  ) {
     return (
         `
         <div class = "list-item">
-            <p>Сумма: ${amount}</p>
-            <p>Название: ${name}</p>
-            <p>Категория: ${category}</p>
+            <p class = "list-item__label">Сумма: ${amount}</p>
+            <p class = "list-item__label">Название: ${name}</p>
+            <p class = "list-item__label">Категория: ${category}</p>
         </div>
         `
       );

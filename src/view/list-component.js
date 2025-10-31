@@ -1,5 +1,4 @@
 import { AbstractComponent } from '../framework/view/abstract-component.js';
-import {createElement} from '../framework/render.js'; 
 
 function createTemplate() {
     return (

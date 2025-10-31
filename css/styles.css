@@ -72,7 +72,7 @@ li {
     transform: translate(-50%, -50%) scale(0);
     background: #fff;
     width: 400px;
-    padding: 25px;
+    padding: 15px;
     transition: 0.5s all;
 }
 
@@ -91,13 +91,13 @@ li {
 
 .popup label {
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 3px;
     display: flex;
     flex-direction: column-reverse;
 }
 
 .popup .label__text {
-    font-size: 14px;
+    font-size: 10px;
     text-transform: uppercase;
     font-weight: 500;
     color: #cfd0d3;
@@ -158,4 +158,8 @@ li {
     background: #fff;
     color:#2982ff;
     transition: 0.5s all;
+}
+
+.list-item__label{
+    font-size: 12pt;
 }
