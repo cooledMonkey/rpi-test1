@@ -1,7 +1,7 @@
-import ListComponent from "../view/list-component.js";
 import ListItemComponent from "../view/list-item-component.js";
 import { render } from "../framework/render.js";
 import DeleteButtonComponent from "../view/delete-button-component.js";
+import EditButtonComponent from "../view/edit-button-component.js";
 
 export default class ListPresenter{
     #model = null;
@@ -21,10 +21,6 @@ export default class ListPresenter{
         this.#renderBoard();
     }
 
-        // get items(){
-    //     return this.#model.items;
-    // }
-
     create(){
         const name = document.getElementById('expense-name').value.trim();
         const amount = document.getElementById('expense-amount').value.trim();
@@ -43,13 +39,15 @@ export default class ListPresenter{
     }
 
     edit(task){
-        const bookitle = document.getElementById('book-title-edit').value.trim();
-        const bookAuthor = document.getElementById('book-author-edit').value.trim();
-        const bookGenre = document.getElementById('book-genre-edit').value.trim();
-        if(!bookitle && !bookAuthor && (bookGenre != "Выбрать жанр")){
+        const name = document.getElementById('expense-name-edit').value.trim();
+        const amount = document.getElementById('expense-amount-edit').value.trim();
+        const selectedRadio = document.querySelector('input[name="expense-category-edit"]:checked');
+
+        if(!name && !amount && selectedRadio){
             return;
         }
-        this.#model.editItem(bookitle, bookAuthor, bookGenre, task.id);
+        const selectedValue = selectedRadio.value;
+        this.#model.editItem(name, amount, selectedValue, task.id);
         let popupBg = document.querySelector('.popup__bg'); 
         let popup = document.querySelector('.popup'); 
         popupBg.classList.remove('active');
@@ -74,43 +72,46 @@ export default class ListPresenter{
         const taskComponent = new ListItemComponent({amount: task.amount, name: task.title,category: task.category});
         const deleteButton = new DeleteButtonComponent({id: task.id, model: this.#model})
         
-        //const editButton = new EditButtonComponent({id: task.id, model: this.#model})
+        const editButton = new EditButtonComponent({id: task.id, model: this.#model})
         render(deleteButton, taskComponent.element)
-        //render(editButton, taskComponent.element)
+        render(editButton, taskComponent.element)
         render(taskComponent, container);
 
-        // let popupBg = document.querySelector('.popup__bg'); 
-        // let popup = document.querySelector('.popup'); 
-        // let openPopupButtons = editButton; 
-        // let closePopupButton = document.querySelector('.close-popup');
-        // let saveButton = document.getElementById('save-book-button-edit');
-        // const self = this;
+        let popupBg = document.querySelector('.popup__bg'); 
+        let popup = document.querySelector('.popup'); 
+        let openPopupButtons = editButton; 
+        let closePopupButton = document.querySelector('.close-popup');
+        let saveButton = document.getElementById('save-book-button-edit');
+        const self = this;
 
-        // editButton.element.addEventListener('click', (e) => { 
-        //     e.preventDefault(); 
-        //     popupBg.classList.add('active');
-        //     popup.classList.add('active'); 
-        //     document.getElementById('book-title-edit').value = task.title;
-        //     document.getElementById('book-author-edit').value = task.author;
-        //     document.getElementById('book-genre-edit').value = task.genre;
+        editButton.element.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            popupBg.classList.add('active');
+            popup.classList.add('active'); 
+            document.getElementById('expense-name-edit').value = task.title;
+            document.getElementById('expense-amount-edit').value = task.amount;
+            const radioButton = document.querySelector(`input[name="expense-category-edit"][value="${task.category}"]`);
+            if (radioButton) {
+                radioButton.checked = true;
+            }
 
-        //     const newSaveButton = saveButton.cloneNode(true);
-        //     saveButton.parentNode.replaceChild(newSaveButton, saveButton);
-        //     saveButton = newSaveButton;
-        //     saveButton.addEventListener('click', self.editBook.bind(self, task));
-        // });
+            const newSaveButton = saveButton.cloneNode(true);
+            saveButton.parentNode.replaceChild(newSaveButton, saveButton);
+            saveButton = newSaveButton;
+            saveButton.addEventListener('click', self.edit.bind(self, task));
+        });
 
-        // closePopupButton.addEventListener('click',() => { 
-        //     popupBg.classList.remove('active'); 
-        //     popup.classList.remove('active'); 
-        // });
+        closePopupButton.addEventListener('click',() => { 
+            popupBg.classList.remove('active'); 
+            popup.classList.remove('active'); 
+        });
 
-        // document.addEventListener('click', (e) => {
-        //     if(e.target === popupBg) {
-        //         popupBg.classList.remove('active'); 
-        //         popup.classList.remove('active'); 
-        //     }
-        // });
+        document.addEventListener('click', (e) => {
+            if(e.target === popupBg) {
+                popupBg.classList.remove('active'); 
+                popup.classList.remove('active'); 
+            }
+        });
     }
 
     #renderBoard(){

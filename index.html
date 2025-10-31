@@ -23,6 +23,25 @@
 
         </div>
     </div>
+        <div class="popup__bg"> 
+            <form class="popup">
+                <p class="close-popup">x</p>
+<h2>Добавить расходы</h2>
+                <label for="expense-name">Наименование расхода:</label>
+                <input type="text" id="expense-name-edit" placeholder="Например, еда" required />
+                <label for="expense-amount">Стоимость:</label>
+                <input type="number" id="expense-amount-edit" placeholder="Amount" required />
+                
+                <fieldset>
+                    <legend>Категория:</legend>
+                    <label><input type="radio" name="expense-category-edit" value="Food" required /> Еда</label>
+                    <label><input type="radio" name="expense-category-edit" value="Transport" required /> Транспорт</label>
+                    <label><input type="radio" name="expense-category-edit" value="Entertainment" required /> Развлечения</label>
+                    <label><input type="radio" name="expense-category-edit" value="Other" required /> Другое</label>
+                </fieldset>
+                <button id = "save-book-button-edit" type="button" >Сохранить изменения</button>
+            </form>
+</div> 
     <script type="module" src="./src/main.js"></script>
 </body>
 </html>

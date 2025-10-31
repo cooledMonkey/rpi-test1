@@ -25,12 +25,12 @@ export default class Model{
         return newItem;
     }
 
-    editItem(title, author, genre, oldItemId){
+    editItem(name, amount, category, oldItemId){
         const newItem = {
             id: generateID(),
-            author: author,
-            title: title, 
-            genre: genre,
+            title: name,
+            amount: amount, 
+            category: category,
         };
         this.#data.push(newItem);
         this.#data = this.items.filter((x) => x.id !== oldItemId);
