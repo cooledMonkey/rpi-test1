@@ -17,7 +17,7 @@ export default class DeleteButtonComponent extends AbstractComponent{
         this.id = id;
 
         function a(){
-            model.deleteBook({id: this.id});
+            model.deleteItem({id: this.id});
         }
         this.#handleClick = a;
         this.element.addEventListener('click', this.#clickHandler);

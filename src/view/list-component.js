@@ -3,13 +3,10 @@ import {createElement} from '../framework/render.js';
 
 function createTemplate() {
     return (
-                `<div>
-            <h2>Книги</h2>
-            <ul id="book-list">
-            
-            </ul>
-        </div>
-        `
+        `<h2>Список расходов</h2>
+            <ul id="expense-list">
+                
+            </ul>`
       );
 }
 

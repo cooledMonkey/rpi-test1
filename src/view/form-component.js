@@ -3,18 +3,23 @@ import {createElement} from '../framework/render.js';
 
 function createTemplate() {
     return (
-                `<form id="book-form">
-            <h2>Добавить новую книгу</h2>
-                <input type="text" id="book-title" placeholder="Название книги" required />
-                <input type="text" id="book-author" placeholder="Автор" required />
-                <select id="book-genre" required>
-                    <option value="">Выбрать жанр</option>
-                    <option value="Fiction">Художественная</option>
-                    <option value="Science">Научная</option>
-                    <option value="Fantasy">Фантастика</option>
-                    <option value="Biography">Биография</option>
-                </select>
-                <button class = "add-book-button" type="submit">Добавить книгу</button>
+        `            
+            <form id="expense-form">
+            <h2>Добавить расходы</h2>
+                <label for="expense-name">Наименование расхода:</label>
+                <input type="text" id="expense-name" placeholder="Например, еда" required />
+                <label for="expense-amount">Стоимость:</label>
+                <input type="number" id="expense-amount" placeholder="Amount" required />
+                
+                <fieldset>
+                    <legend>Категория:</legend>
+                    <label><input type="radio" name="expense-category" value="Food" required /> Еда</label>
+                    <label><input type="radio" name="expense-category" value="Transport" required /> Транспорт</label>
+                    <label><input type="radio" name="expense-category" value="Entertainment" required /> Развлечения</label>
+                    <label><input type="radio" name="expense-category" value="Other" required /> Другое</label>
+                </fieldset>
+
+                <button type="submit">Добавить расходы</button>
             </form>`
       );
 }

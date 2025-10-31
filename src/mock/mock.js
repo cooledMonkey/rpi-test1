@@ -1,26 +1,26 @@
 export const items = [
     {
         id: 1,
-        author: "author1",
+        amount: 100,
         title: "name1",
-        genre: "Fantasy"
+        category: "Food"
     },
         {
         id: 2,
-        author: "author2",
+        amount: 11,
         title: "name2",
-        genre: "Science"
+        category: "Transport"
     },
         {
         id: 3,
-        author: "author1",
+        amount: 234,
         title: "name3",
-        genre: "Biography"
+        category: "Entertainment"
     },
         {
         id: 4,
-        author: "author1",
+        amount: 1,
         title: "name4",
-        genre: "Fiction"
+        category: "Entertainment"
     }
 ]

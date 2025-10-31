@@ -13,12 +13,12 @@ export default class Model{
         return this.#data.filter(task => task.status === status);
     }
 
-    addItem(title, author, genre){
+    addItem(name, amount, category){
         const newItem = {
             id: generateID(),
-            author: author,
-            title: title, 
-            genre: genre,
+            title: name,
+            amount: amount, 
+            category: category,
         };
         this.#data.push(newItem);
         this._notifyObservers();
