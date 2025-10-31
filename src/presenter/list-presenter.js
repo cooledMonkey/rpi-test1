@@ -66,7 +66,7 @@ export default class ListPresenter{
 
     #filterByGenre(tasks, status){
         return tasks.filter(x => {
-            return x.genre == status;
+            return x.category == status;
         });
     }
 
@@ -115,10 +115,10 @@ export default class ListPresenter{
 
     #renderBoard(){
             let tasksForStatus = this.#model.items;
-            //const bookGenre = document.getElementById('genre-filter').value.trim();
-            // if((bookGenre != "all")){
-            //     tasksForStatus = this.#filterByGenre(this.#model.items, bookGenre);
-            // }
+            const category = document.getElementById('category-filter').value.trim();
+            if((category != "all")){
+                tasksForStatus = this.#filterByGenre(this.#model.items, category);
+            }
             tasksForStatus.forEach((task) => {
                 this.#renderItem(task, this.#listContainer.element);
             })

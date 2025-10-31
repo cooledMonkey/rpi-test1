@@ -5,8 +5,8 @@ function createTemplate(amount,name,category  ) {
     return (
         `
         <div class = "list-item">
-            <p>Название: ${amount}</p>
-            <p>Автор: ${name}</p>
+            <p>Сумма: ${amount}</p>
+            <p>Название: ${name}</p>
             <p>Категория: ${category}</p>
         </div>
         `
@@ -14,22 +14,25 @@ function createTemplate(amount,name,category  ) {
 }
 
 export default class ListItemComponent extends AbstractComponent{
-  #handleClick = null 
   constructor({amount,name,category }){
     super();
-    //this.#handleClick = onClick;
-    //this.element.addEventListener('submit', this.#clickHandler);
     this.amount = amount;
     this.name = name;
-    this.category = category;
+    if(category === "Food"){
+      this.category = "Еда";
+    }
+    else if(category === "Transport"){
+      this.category = "Транспорт";
+    }
+    else if(category === "Entertainment"){
+      this.category = "Развлечения";
+    }
+    else{
+      this.category = "Другое";
+    }
   }
 
   get template(){
         return createTemplate(this.amount, this.name, this.category);
   }
-
-  #clickHandler = (evt) => {
-    evt.preventDefault();
-    this.#handleClick();
-  };
 }

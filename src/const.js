@@ -1,5 +1,5 @@
 const Genre = {
-    FICTION : `fiction`,
+    FICTION : `Food`,
     SCIENCE: `science`,
     FANTASY: `fantasy`,
     BIOGRAPHY: `biography`

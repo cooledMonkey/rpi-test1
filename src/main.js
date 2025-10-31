@@ -28,7 +28,7 @@ const formComponent = new FormComponent({onClick: handleNewTaskButtonClick});
 render(formComponent, formContainer, RenderPosition.AFTERBEGIN);
 
 
-const filterComponent = new FilterComponent();
+const filterComponent = new FilterComponent({onClick: handleFilterSelection});
 render(filterComponent, filterContainer)
 
 function handleFilterSelection(){
