@@ -5,11 +5,11 @@ const Category = {
     OTHER: `Other`
 }
 
-const CategoryeLabel = {
-    [Status.FOOD]: `Еда`,
-    [Status.TRANSPORT]: `Транспор`,
-    [Status.ENTERTAINMENT]: `Развлечения`,
-    [Status.OTHER]: `Другое`
+const CategoryLabel = {
+    [Category.FOOD]: `Еда`,
+    [Category.TRANSPORT]: `Транспор`,
+    [Category.ENTERTAINMENT]: `Развлечения`,
+    [Category.OTHER]: `Другое`
 }
 
-export {Category, CategoryeLabel};
+export {Category, CategoryLabel};
